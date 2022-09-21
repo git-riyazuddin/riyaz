@@ -8,7 +8,7 @@ cnum=orgnum;
 for(int i=2;i<=orgnum/2;i++){
 if(orgnum%i==0){
 System.out.println("it is not a prime number");
-flag=1;
+flag=1;break;
 }
 
 }
