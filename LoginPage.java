@@ -65,7 +65,7 @@ signup(n1);
 break;}
 }
 public static void signup(int n){
-int flag=0;
+//int flag=0;
 System.out.println("Enter your name");
 String name=s.nextLine();
 System.out.println("Enter your mail id");
@@ -165,6 +165,7 @@ flag=0;}
 else{
 flag=1;
 break;}
+}
 if(flag==0){
 System.out.println("Hello"+name);
 }
@@ -172,10 +173,11 @@ else{
 System.out.println("enter correct password");
 signin(name,p,email);
 }
-}}
+}
 else
 {
 System.out.println("Enter correct user id");
 }
+
 }
 }
