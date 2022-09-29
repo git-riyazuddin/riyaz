@@ -43,7 +43,6 @@ public static void User(){
 			SignIn(name,password);	
 			break;
 }	
-//User.SignIn(String name,String password);
 }
 public static void SignIn(String name,String password){
 	String id,lp;
@@ -57,7 +56,7 @@ public static void SignIn(String name,String password){
 		}
 		else{
 			System.out.println("PASSWORD IN VALID");
-		}
+	}
 	}
 	else{
 		System.out.println("YOUR PASSWORD OR USER ID IS INVALID");
@@ -65,5 +64,26 @@ public static void SignIn(String name,String password){
 	}	
 }
 public static void SignUp(){
+
+	System.out.println("Enter your name:________________ ");
+	String name=s.next();
+	System.out.println("Enter your email id:_______________");
+	String mail =s.next();
+	System.out.println("Enter password it must be 8 letters");
+	String password=s.next();
+	int length=8;
+	if(password.length().equals(length)){
+	System.out.println("Conform password:______________");
+	String conpass=s.next();
+	if(conpass.equals(password))
+	{
+		System.out.println("your user id:"+name+"your password:"+password);
+		SignIn(name,password);
+	}
+	}
+	else
+	{
+		System.out.println("password is wrong");	
+	}
 }
 }

@@ -23,7 +23,7 @@ public class Subset{
 					temp+=a[j];
 					break;
 					}
-					//System.out.println(temp);
+					System.out.println(temp);
 				}
 				else if(temp==sum){
 					System.out.println("since there is subset");

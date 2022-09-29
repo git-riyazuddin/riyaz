@@ -2,8 +2,10 @@ import java.util.Scanner;
 public class ArrayArangement{
 public static void main(String [] args){
 Scanner s=new Scanner(System.in);
+System.out.println("Enter number of arrays");
 int n=s.nextInt();
 int a[]=new int[n];
+System.out.println("Enter array values");
 for(int i=0;i<n;i++)
 a[i]=s.nextInt();
 int temp[]=new int[n];
@@ -19,4 +21,4 @@ temp[k++]=a[i];
 }
 
 for(int i=0;i<n;i++)
-System.out.println(temp[i]+" ");}}
+System.out.print(temp[i]+" ");}}

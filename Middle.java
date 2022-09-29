@@ -2,7 +2,7 @@ import java.util.Scanner;
 class Middle{
 public static void main(String[]args){
 Scanner s=new Scanner(System.in);
-String str=s.nextLine();
+String str=s.next();
 int n=(str.length()-1)*2;
 char [] arr=new char[str.length()];
 int j=0;
@@ -18,7 +18,7 @@ j++;
 }
 for(int i=0;i<str.length();i++){
 if(n>0)
-System.out.print(" ");
+System.out.format(" %1$"+n+"s", "");
 for(int k=0;k<i+1;k++)
 {
 System.out.print(arr[k]);

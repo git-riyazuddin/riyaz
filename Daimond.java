@@ -1,21 +1,32 @@
 import java.util.Scanner;
-class Daimond{
-public static void main(String []args){
-
-Scanner s=new Scanner(System.in);
-int i,j,n,l,count=0;
-n=s.nextInt();
-for(i=-n;i<=n;i++){
-if(i<0)
-l=-i;
-else
-l=i;
-for(j=0;j<2*n-l+1;j++)
-{
-if(j<l)
-System.out.print(" ");
-else
-System.out.print(++count+" ");
+public class Daimond{
+	public static void main(String []args){
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter n value");
+		int n=s.nextInt();int k=0;
+		for(int i=1;i<=n;i++){
+			for(int j=-n;j<n;j++){
+				if(-i<j&&j<i){
+				System.out.print(k++  );
+				
+				}
+			else
+				System.out.print("  ");
+			}
+		System.out.println();
+		}
+		for(int i=1;i<=n;i++){
+			for(int j=-n;j<n;j++){
+				if(-(n-i)<j&&j<(n-i))
+				System.out.print("*");
+			else
+				System.out.print("  ");
+			}
+		System.out.println();
+		}
+		
+		
+	}
 }
-System.out.print("\n");
-}}}
+		
+				

@@ -3,8 +3,10 @@ class ArrayAdd{
 public static void main(String []args){
 Scanner s=new Scanner(System.in);
 int n,m,k;
-int c=0;int s=0;int j,i;
+int c=0;int r=0;int j,i;
+System.out.println("Enter n value");
 n=s.nextInt();
+System.out.println("Enter m value");
 m=s.nextInt();
 int a[]=new int[n];
 for(i=0;i<n;i++){
@@ -22,9 +24,9 @@ k=m-1;
 b[-1]=0;
 int sum[]=new int[k];
 for(i=a.length-1;i>=0;i--){
-s=a[i]+b[j]+c;
-sum[k]=s%10;
-c=s/10;
+r=a[i]+b[j]+c;
+sum[k]=r%10;
+c=r/10;
 k--;
 }
 for(i=0;i<=k;i++)
