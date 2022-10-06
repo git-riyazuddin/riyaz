@@ -1,4 +1,3 @@
-package program;
 import java.util.*;
 public class Library{
 	public static Scanner s=new Scanner(System.in);
@@ -6,14 +5,12 @@ public class Library{
 		Library obj=new Library();
 		Admin ad=new Admin();
 		User us=new User();
-		//Admin ad=new Admin();
-		//User us=new User();
 		
-		System.out.println("1.login");
-		System.out.println("2.signup");
+		System.out.println("1.Admin");
+		System.out.println("2.Signup");
 		int click=s.nextInt();
 		if(click==1) 
-			//Admin ad=new Admin();
+			
 		ad.Admin();
 		if(click==2)
 			
@@ -21,44 +18,7 @@ public class Library{
 	
 	}
 		
-/*	public void view() {
-		String [] str=new String[20];
-		String [] pri=new String[20];
-		int [] arr=new int [20];
-		int count2=0;
-		int count=0;
-		int count1=0;
-		str[count++]="Books";
-		str[count++]="Quran";
-		str[count++]="Bhavathgitha";
-		str[count++]="Bible";
-		str[count++]="Thirukural";
-		str[count++]="vedhas";
-		pri[count1++]="Prize";
-		pri[count1++]="Rs.1500";
-		pri[count1++]="Rs.800";
-		pri[count1++]="Rs.600";
-		pri[count1++]="Rs.500";
-		pri[count1++]="Rs.2500";
-		arr[count2++]=8;
-		arr[count2++]=10;
-		arr[count2++]=10;
-		arr[count2++]=10;
-		arr[count2++]=10;
-		arr[count2++]=10;
 
-				
-		for(int i=0;i<str.length;i++){
-			if(i==0)
-				System.out.println("s.no"+"|"+str[i]+"|"+pri[i]+"|"+"no.of.books");
-			else if(str[i]!=null)
-				System.out.println(i+"|"+str[i]+"|"+pri[i]+"|"+arr[i]);
-		}
-
-
-	}*/
-	
-	
 	}
 class Admin{
 	public static Scanner s=new Scanner(System.in);
@@ -78,6 +38,8 @@ class Admin{
 		}	
 		else {
 			System.out.println("pass word invalid");
+			User us=new User();
+			us.Signup();
 		}
 	}
 		public void view() {
@@ -291,9 +253,13 @@ class User{
 					System.out.println(i+"|"+str[i]+"|"+pri[i]+"|"+arr[i]);
 				
 			}
+			
 			System.out.println("1.Buy");
-			Buy(str,arr);
 			System.out.println("2.Read");
+			int n=s.nextInt();
+			if(n==1)
+			Buy(str,arr);
+			if(n==2)
 			Read();
 		
 	}
@@ -307,6 +273,8 @@ class User{
 			if(i==k){
 				
 				arr[i]--;
+				System.out.println("you brougth book");
+				
 			}
 		}
 	}
