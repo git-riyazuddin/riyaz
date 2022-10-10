@@ -1,8 +1,9 @@
-package riyaz;
+package oops;
 
 import java.util.Scanner;
 
-public class TrainRes {
+
+public class Trainres {
 	public static void main(String[] args) {
 		Scanner s=new Scanner(System.in);
 		boolean loop=true;
@@ -13,21 +14,25 @@ public class TrainRes {
 			switch(choice) {
 			case 1:
 			{
-				Book bo=new Book();
-				bo.Book();
+				Booking bo=new Booking();
+				bo.book();
 				break;
 			}
 			case 2:
 			{
+				
 				break;
 			}
 			case 3:
 			{
+				TicAva av=new TicAva();
+				av.show();
 				break;
 				
 			}
 			case 4:
-			{
+			{	BookedTickt bt=new BookedTickt();
+				bt.ShowDetials();
 				break;
 			}
 			
@@ -42,88 +47,125 @@ public class TrainRes {
 	}
 	
 }
-class Book{
-	
-	public void Book() {
-	Scanner s=new Scanner(System.in);
-	System.out.println("Enter the passenger Name:");
-	String name =s.next();
-	System.out.println("Enter the Passenger age:");
-	int age=s.nextInt();
-	System.out.println("Enter the passenger gender:(M,F)");
-	String gender=s.next();
-	System.out.println("Enter the passenger Bertn preference:(L,M,U)");
-	String bp=s.next();
-	Passenger p=new Passenger(name,age,gender,bp);
-	
-}
-public void Ticket() {
-	Scanner s=new Scanner(System.in);
-		String[][]str=new String[11][6];
-		int j=0;
-		int i=0;
-		str[i][j++]="PNR";
-		str[i][j++]="NAME";
-		str[i][j++]="AGE";
-		str[i][j++]="GENDER";
-		str[i][j++]="BERTH";
-		str[i][j++]="WHERE TO WHERE ";
 
+class Passenger{
+	Scanner s=new Scanner(System.in);
+	   String from;
+	   String to;
+	 static   int upper=2;
+	 static  int lower=2;
+	 static int middle=2;
+	 static int berth=6;
+	 static int Rac=2;
+	 static  int wl=2;
+		static String Pnr[]=new String[10];
+		static String Name[]=new String[20];
+		static int Age[]=new int[20];
+	    static int berthno[]=new int[20];
+	    static String Gender[]=new String[20];
+		static int Fare[]=new int[20];
+		static String Berth[]=new String[20];
+		static String detial[][]=new String[11][5];
+		static int pnr=0;
+		int p=0,n=0,a=0,bn=0,b=0,g=0;
 	
-		for(i=1;i<=10;i++)
+} 
+class Booking extends Passenger{
+	
+	public void book() {
+	pnr++;
+	System.out.println("Enter number passengers u book");
+	int n=s.nextInt();
+	for(int i=0;i<n;i++)
+	{   
+		Pnr[p++]=Integer.toString(pnr);
+		System.out.println("Enter the passenger Name:");
+		String name =s.next();
+		Name[n++]=name;
+		System.out.println("Enter the Passenger age:");
+		int age =s.nextInt();
+		 Age[a++]=age;
+		 System.out.println("Enter the passenger gender:(M,F)");
+			String gender =s.next();
+			Gender[g++]=gender;
+			System.out.println("Enter the passenger Bertn preference:(L,M,U)");
+			String berth =s.next();
+			Berth[b++]=berth;
+			berthno[bn++]=i;
+			
+			
+		 
+	}
+	}
+	
+	/*public void booktic(){
+		pnr++ ;	
+	 int k=0;
+	 int j=0;
+	 int n=s.nextInt();
+	detial[k][j++]="PNR";
+		detial[k][j++]="NAME";
+		detial[k][j++]="AGE";
+		detial[k][j++]="GENDER";
+		detial[k][j++]="BERTH";
+		detial[k][j++]="WHERE TO WHERE ";
+	for(int i=0;i<n;i++)
+	{
+		for(j=0;j<5;j++)
 		{
-			for(j=1;j<6;j++) {
-				if(j==1)
-				{
-					System.out.println("Enter the passenger Name:");
-					str[i][j]=s.next();
-				}
-				if(j==2)
-				{
-					int n=s.nextInt();
-					str[i][j]=s.next();
-					
-				}
-				if(j==3)
-				{
-					str[i][j]=s.next();
-					
-				}
-				if(j==4)
-				{
-					str[i][j]=s.next();
-				}
-				if(j==5)
-				{
-				str[i][j]="EGMORE TO THIRUCHI";	
-				}
-
+			if(j==0)
+				detial[i][j]=Integer.toString(pnr);
+			if(j==1){
+				System.out.println("Enter the passenger Name:");
+				String name =s.next();
+			detial[i][j]=name;
+			}
+			if(j==2){
+				System.out.println("Enter the Passenger age:");
+				int age =s.nextInt();
+				if(age>5)
+			detial[i][j]=Integer.toString(age);}
+			if(j==3){
+				System.out.println("Enter the passenger gender:(M,F)");
+				String gender =s.next();
+			detial[i][j]=gender;
+			}
+			if(j==4)
+			{	System.out.println("Enter the passenger Bertn preference:(L,M,U)");
+				String berth =s.next();
+			detial[i][j]=berth;
+			}
+			if(j==5){
+				
+			detial[i][j]="chennai to bangalore";
 			}
 			
+			}
+	}
+	}*/
+}
+class BookedTickt extends Passenger{
+	public void ShowDetials(){
+	for(int i=0;i<11;i++){
+		for(int j=0;j<5;j++)
+		{
+			System.out.print(Pnr[i]+"\t "+Name[i]+"\t "+Age[i] +"\t "+Berth[i] +"\t "+berthno[i]);
 		}
+		System.out.println();
+			
 	}
 }
-class Cancel{
+}
+class TicAva extends Passenger{
+	
+public void show() {
+	System.out.println("Avalablelower upper middle seat");
+	System.out.println("    "+lower+"\t        "+upper+"\t    "+middle+"\t"+berth);
+}
+}
+class Cancel extends Passenger{
 	public Cancel() {
 		
 	}
 }
-class Passenger{
-	static int id=1;
-	String name;
-	int age;
-	String gender;
-	String bp;
-	int passengerid=id++;
-	String alloted;
-	int number;
-	public Passenger(String name,int age,String gender,String bp)
-	{
-		this.name=name;
-		this .age=age;
-		this.gender=gender;
-		this.bp=bp;
-		alloted="";
-		number=-1;
-	}
-} 
+
