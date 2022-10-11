@@ -115,8 +115,8 @@ class TicketBook extends PassDetails
 			{
 			if(ag>60)
 			{
-			 check=lower!=0?true:false;
-			if(check==true)
+			// check=lower!=0?true:false;
+			if(lower!=0)
 			{
 				Berth[count]="Lower";
 				--lower;
@@ -224,7 +224,19 @@ System.out.println("Enter your sino to cancel your ticket:");
     				Fare[j+2]=0;
     				break;
     			}
+    			/*if(Fare[j]==0) {
+    				
+    				Pnr[j]=Pnr[j+1];
+    				
+    				Name[j]=Name[j+1];
     			
+    				Age[j]=Age[j+1];
+    				
+    				Gender[j]=Gender[j+1];
+    				Fare[j]=Fare[j+1];
+    			
+    				
+    			}*/
     				
     			}
     			}
