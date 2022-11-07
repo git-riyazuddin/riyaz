@@ -7,14 +7,14 @@ public class Hospitalman{
      int n=s.nextInt();
      for(int i=0;i<n;i++) {
                  d.data();
-     }
+	 }
 	 d.result();
     }
 
 }
 class EDetials{
     Scanner s=new Scanner(System.in);
-    String pid="10";
+   // String pid="10";
     String Id;
     String Name;
     String phone;
@@ -54,14 +54,14 @@ class data {
     float time;
     float out;
     float pout;
-   static float wait = 0;
+   float wait = 0;
     float docter;
    static int k = 0;
    String Discription;
-
+ EDetials detials[] = new EDetials[20];
     public void data() {
         Scanner s = new Scanner(System.in);
-        EDetials detials[] = new EDetials[20];
+       
  System.out.println("please enter ur name");
          Name = s.next();
          System.out.println("please enter ur phone number");
@@ -78,18 +78,18 @@ class data {
             out = s.nextFloat();
             pout = out * 3600;
             float duration = time + (docter * 60) + (15 * 60) + wait;
-            wait = time + duration - pout;
-            if (wait > 0)
-                Discription = "sorry";
+            wait =(int)( (time + duration - pout)/3600);
+            if (wait > 0){
+			Discription = "sorry";}
 			else
 				Discription=" ";
             detials[k++] = new EDetials(Id, Name, in, time, out, pout, wait, docter, Discription, phone);
 
         }
 		public void result(){
-for(int i=0;i<k;i++)
-    System.out.println(detials[i].Id+"\t"+detials[i].Name+"\t"+detials[i].phone+"\t"+detials[i].in+"\t"+detials[i].out+"\t"+detials[i].Discription);
-
+for(int i=0;i<k;i++){
+    System.out.println(detials[i].Id+"\t"+detials[i].Name+"\t"+detials[i].phone+"\t"+detials[i].in+"\t"+detials[i].out+"\t"+detials[i].wait+"\t"+detials[i].Discription);
+}
 
     }
 }
