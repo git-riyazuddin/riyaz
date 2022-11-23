@@ -1,0 +1,137 @@
+import java.util.*;
+public class Game{
+
+    static Scanner s=new Scanner(System.in);
+    //Game gam=new Game();
+    public static void main(String []args){
+        Game gam=new Game();
+        String t[][]=new String[3][3];
+        boolean g[][]=new boolean[3][3];
+        int count=0;
+        t[0][0]="1";t[0][1]="2";t[0][2]="3";t[1][0]="4";t[1][1]="5";t[1][2]="6";t[2][0]="7";t[2][1]="8";t[2][2]="9";
+        gam.Display(t);
+        gam.player1(t,count,g);
+
+    }
+    public static void player1(String t[][],int count,boolean g[][]){
+        Game gam=new Game();
+        if(count!=9){
+            System.out.println("Enter player 1 place");
+            int row=s.nextInt();
+            int k=1;
+            for(int i=0;i<3;i++){
+                for(int j=0;j<3;j++){
+                    if(g[i][j]!=true) {
+
+                        if (i+j+k== row) {
+                            t[i][j] = "x";
+                            ++count;
+                            g[i][j] = true;
+                            gam.Display(t);
+                            if (count > 4)
+                                gam.check(t, count);
+                           if (count != 9)
+                            gam.player2(t, count, g);
+
+                        }
+                    }
+
+                    else
+                        gam.player1(t,count,g);
+
+                }
+                k=k+2;
+            }
+        }
+
+    }
+    public static void player2(String t[][],int count,boolean g[][]){
+        Game gam=new Game();
+        if(count!=9){
+            System.out.println("Enter player 2 place");
+            int row=s.nextInt();
+            int k=1;
+            for(int i=0;i<3;i++){
+                for(int j=0;j<3;j++){
+                    if(g[i][j]!=true) {
+
+                        if (i+j+k ==row) {
+                            t[i][j] = "o";
+                            ++count;
+                            g[i][j] = true;
+                            gam.Display(t);
+                            if (count > 4)
+                                gam.check(t, count);
+                            if (count != 9) ;
+                            gam.player1(t, count, g);
+                        }
+                    }
+
+                    else
+                        gam.player2(t,count,g);
+
+                }
+                k=k+2;
+            }
+        }
+        else
+            System.out.println("game draw");
+    }
+    public static void Display(String t[][]){
+
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                System.out.print(t[i][j]+"  ");
+            }
+            System.out.println();
+        }
+    }
+    public static void check(String t[][],int count)
+    {int i=0,j=0;
+        int count1=0;
+        boolean k=false;
+        while(i<3)
+        {
+            while(j<2)
+            {
+                if(t[i][j]==t[i][j+1]){
+                    j++;
+                    count1++;
+                }
+                else{
+                    j=0;
+                    break;
+                }
+            }
+            i++;
+        }
+        count=0;j=0;i=0;
+        while(j<3)
+        {
+            while(i<2){
+                if(t[i][j]==t[i+1][j]){
+                    i++;
+                    count1++;
+                }
+                else{
+                    i=0;
+                    break;
+                }
+            }
+            j++;
+        }
+        if(count==2){
+            System.out.println ("congratulations!!"+t[i][j]+"'s he won");
+            count=9;
+        }
+        else if(t[0][0]==t[1][1]&&t[1][1]==t[2][2]){
+            System.out.println("congratulations!!"+t[0][0]+"'s he won");
+            count=9;
+        }
+        else if(t[0][2]==t[1][1]&&t[1][1]==t[2][0]){
+            System.out.println("congratulations!!"+t[0][2]+"'s he won");
+            count =9;
+        }
+
+    }
+}
